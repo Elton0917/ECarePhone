@@ -1,0 +1,268 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>健康照護管理系統</title>
+    <link rel="stylesheet" href="jquery.mobile.min.css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <script type="text/javascript" src="cordova-2.0.0.js"></script>
+    <script type="text/javascript" src="jquery-1.6.4.min.js"></script>
+    <script type="text/javascript" src="jquery.mobile.min.js"></script>
+    <script type="text/javascript">
+        if (typeof (JSON) == 'undefined') { //沒有 JSON 時才讓 browser 下載 json2.js
+            $('head').append($("<script type='text/javascript' src='json2.js'>"));
+        }
+    </script>
+    <script type="text/javascript">        // =====================================離開Funtion
+        function onDeviceReady() {
+            document.addEventListener("backbutton", onBackButton, false);
+        }
+        function onBackButton() { // 返回鍵
+            showConfirm();
+        }
+        function onConfirm(button) {
+            if (button === 1) {    // 第1個按鈕
+                navigator.app.exitApp(); // 離開應用程式
+            }
+        }
+        // 顯示確認對話方塊
+        function showConfirm() {
+            navigator.notification.confirm(
+      '確定要離開嗎?',  // 訊息
+      onConfirm,        // 回撥函數
+      '確認離開',       // 標題文字
+      '確定, 取消'      // 選項用逗號隔開
+   );
+        }
+        function onLoad() {
+            document.addEventListener("deviceready", onDeviceReady, false);
+        } 
+    </script>
+    <script type="text/javascript">        // ===================================背景執行Funtion
+
+        function onDeviceReady() {
+            document.addEventListener('pause', function () {
+                $('#status').html("暫停...");
+            }, false);
+            document.addEventListener("resume", onResume, false);
+        }
+        function onResume() {
+            alert("歡迎回來...");
+        }
+        function onLoad() {
+            document.addEventListener("deviceready", onDeviceReady, false);
+        }
+    </script>
+    <script type="text/javascript">        // ====================================載入Funtion
+        $(document).ready(function () {
+            $('a').click(function () {
+                $.mobile.showPageLoadingMsg(); // 顯示
+                setTimeout(function () {
+                    $.mobile.hidePageLoadingMsg(); // 隱藏
+                }, 2000);
+            });
+        });
+    </script>
+    <script type="text/javascript">        // ====================================網路狀況Funtion
+        function onDeviceReady() {
+            document.addEventListener("offline", onOffline, false);
+            document.addEventListener("online", onOnline, false);
+            $('#checkConnection').bind('click',
+      function () {
+          checkConnection();
+      });
+            $('#offline').hide();
+            $('#online').hide();
+        }
+        function onOffline() {
+            // 處理offline事件
+            alert("目前是離線狀態，資料庫將無法讀取!");
+            $('#offline').show();
+            $('#online').hide();
+        }
+        function onOnline() {
+            // 處理online事件
+            alert("目前是連線狀態，歡迎使用本系統!");
+            $('#online').show();
+            $('#offline').hide();
+        }
+        function checkConnection() {
+            var networkState = navigator.network.connection.type;
+            var states = {};
+
+            states[Connection.UNKNOWN] = '未知連線';
+            states[Connection.ETHERNET] = '網路卡連線';
+            states[Connection.WIFI] = 'WiFi連線';
+            states[Connection.CELL_2G] = '2G連線';
+            states[Connection.CELL_3G] = '3G連線';
+            states[Connection.CELL_4G] = '4G連線';
+            states[Connection.NONE] = '沒有網路連線';
+            if (networkState == Connection.NONE) {
+                $('#offline').show();
+                $('#online').hide();
+            }
+            else {
+                $('#online').show();
+                $('#offline').hide();
+            }
+            alert('連線類型: ' + states[networkState]);
+        }
+        function onLoad() {
+            document.addEventListener("deviceready", onDeviceReady, false);
+        }   
+    </script>
+
+      <script type="text/javascript">          // ====================================GETJSON
+          
+          
+
+    </script>
+        <!--=========================================================這裡是CSS-->
+    <style>
+        .datalist
+        {
+            border: 1px solid #007108;
+            border-collapse: collapse;
+            background-color: #d9ffdc;
+            font-size: 14px;
+            text-align: center;
+            font-size: larger;
+            table-layout: auto;
+            width: 800px;
+        }
+        .datalist tr.altrow
+        {
+            background-color: #a5e5aa;
+        }
+    </style>
+    <style>
+        div
+        {
+            text-align: center;
+        }
+        .style1
+        {
+            font-size: large;
+        }
+    </style>
+
+</head>
+<body onload="onLoad()">
+    <!--=========================================================首頁-->
+    <div data-role="page" id="Home">
+        <div data-role="header" style=" height: 50px;">
+       <div>
+        
+                <img src="images/Health.png" style="height: 30px; width: 25px; clear:left; margin-top:10px;" /><b>&nbsp; 
+                <span class="style1">健康照護管理系統</span></b></div>
+        </div>
+        <div data-role="content">
+       
+   
+        
+        <div>
+        <div class="ui-grid-a">
+            <div class="ui-block-a"><img src="images/nurse.png" style=" height:100px; width:60px;" /></div>
+            <div class="ui-block-b">
+                <div data-role="fieldcontain">
+                <label for="Mname"><b>護理師：</b></label>
+                <input type="text" id="Mname" name="Mname" /> 
+                </div>
+                <div data-role="fieldcontain">
+                <label for="Mlocal"><b>所屬：</b></label>
+                <input type="text" id="Mlocal" name="Mlocal" /> 
+                </div>                           
+            </div>
+            </div>
+
+            <a href="#resualt" data-role="button" data-transition="slideup" data-icon="search"
+                data-iconpos="left" data-prefetch>訪視紀錄</a><a href="#" data-role="button" data-transition="slideup"
+                    data-icon="plus" data-iconpos="left">新增紀錄</a> <a href="#" data-role="button" data-transition="slideup"
+                        data-icon="home" data-iconpos="left">個案管理</a><a href="#" data-role="button" data-transition="slideup"
+                        data-icon="home" data-iconpos="left">健康評估表</a><a href="#about" data-role="button"
+                            data-transition="pop" data-icon="info" data-iconpos="left">關於我</a>
+
+            <a href="#" data-role="button" data-icon="delete" onclick="showConfirm();" data-iconpos="left">
+                離開</a>
+                </div>
+                    
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <h3>
+                國立台北護理健康大學 資訊管理系版權所有</h3>
+        </div>
+    </div>
+    <!--=========================================================個案查詢頁面-->
+    <div data-role="page" id="resualt" data-add-back-btn="true" data-back-btn-text="上一頁">
+        <div data-role="header">
+            <h2>
+                健康照護管理系統</h2>
+        </div>
+        <div data-role="content">
+            <ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="搜尋個案">
+                <li data-role="list-divider">個案資料</li>
+                <li class="tap" id="test"><a href="#"></a></li>
+                <li><a href="#test1">張阿一</a></li>
+                <li><a href="#">張阿二</a></li>
+                <li><a href="#">張阿三</a></li>
+                <li><a href="#">張阿四</a></li>
+                <li><a href="#">吳蕙琪</a></li>
+                <li><a href="#">田羽琪</a></li>
+                <li><a href="#">石佳雯</a></li>
+            </ul>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <h2>
+                國立台北護理健康大學 資訊管理系版權所有</h2>
+        </div>
+    </div>
+    <!--=========================================================test-->
+        <div data-role="page" id="test1" data-add-back-btn="true" data-back-btn-text="上一頁">
+        <div data-role="header" style=" height: 50px;">
+       <div>
+        
+                <img src="images/Health.png" style="height: 30px; width: 25px; clear:left; margin-top:10px;" /><b>&nbsp; 
+                <span class="style1">健康照護管理系統</span></b></div>
+        </div>
+        <div data-role="content">
+       
+   
+        
+        <div>
+        <div class="ui-grid-a">
+            <div class="ui-block-a"><img src="images/nurse.png" style=" height:100px; width:60px;" /></div>
+            <div class="ui-block-b">
+                <div data-role="fieldcontain">
+                <label for="Mname"><b>個案：</b></label>
+                <label>李偉帆</label> 
+                </div>
+                <div data-role="fieldcontain">
+                <label for="Mlocal"><b>身分證：</b></label>
+                <input type="text" id="Text2" name="Mlocal" /> 
+                </div>                           
+            </div>
+            </div>
+
+                    
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <h3>
+                國立台北護理健康大學 資訊管理系版權所有</h3>
+        </div>
+    </div>
+    <!--=========================================================關於我-->
+    <div data-role="dialog" id="about">
+        <div data-role="header">
+            <h1>
+                關於我</h1>
+            <div data-role="content" data-pasition="fixed">
+                <p>
+                    國立台北護理健康大學</p>
+                <p>
+                    資訊管理系 李偉帆製作</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
