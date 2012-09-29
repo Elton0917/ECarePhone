@@ -112,13 +112,12 @@
             document.addEventListener("deviceready", onDeviceReady, false);
         }   
     </script>
-
-      <script type="text/javascript">          // ====================================GETJSON
+    <script type="text/javascript">        // ====================================GETJSON
           
           
 
     </script>
-        <!--=========================================================這裡是CSS-->
+    <!--=========================================================這裡是CSS-->
     <style>
         .datalist
         {
@@ -146,105 +145,75 @@
             font-size: large;
         }
     </style>
-
 </head>
 <body onload="onLoad()">
-    <!--=========================================================首頁-->
-    <div data-role="page" id="Home">
-        <div data-role="header" style=" height: 50px;">
-       <div>
-        
-                <img src="images/Health.png" style="height: 30px; width: 25px; clear:left; margin-top:10px;" /><b>&nbsp; 
-                <span class="style1">健康照護管理系統</span></b></div>
+    <!--=========================================================登入-->
+    <div data-role="page" id="login">
+        <div data-role="header" style="height: 50px;">
+            <div>
+                <img src="images/Health.png" style="height: 30px; width: 25px; clear: left; margin-top: 10px;" /><b>&nbsp;
+                    <span class="style1">健康照護管理系統</span></b></div>
         </div>
         <div data-role="content">
-       
-   
-        
-        <div>
-        <div class="ui-grid-a">
-            <div class="ui-block-a"><img src="images/nurse.png" style=" height:100px; width:60px;" /></div>
-            <div class="ui-block-b">
-                <div data-role="fieldcontain">
-                <label for="Mname"><b>護理師：</b></label>
-                <input type="text" id="Mname" name="Mname" /> 
-                </div>
-                <div data-role="fieldcontain">
-                <label for="Mlocal"><b>所屬：</b></label>
-                <input type="text" id="Mlocal" name="Mlocal" /> 
-                </div>                           
+            <div data-role="fieldcontain">
+                <fieldset data-role="controlgroup">
+                    <label for="textinput1">
+                        <b>帳號</b>
+                    </label>
+                    <input name="" id="textinput1" placeholder="" value="" type="text">
+                </fieldset>
             </div>
+            <div data-role="fieldcontain">
+                <fieldset data-role="controlgroup">
+                    <label for="textinput2">
+                        <b>密碼</b>
+                    </label>
+                    <input name="" id="textinput2" placeholder="" value="" type="text">
+                </fieldset>
             </div>
-
-            <a href="#resualt" data-role="button" data-transition="slideup" data-icon="search"
-                data-iconpos="left" data-prefetch>訪視紀錄</a><a href="#" data-role="button" data-transition="slideup"
-                    data-icon="plus" data-iconpos="left">新增紀錄</a> <a href="#" data-role="button" data-transition="slideup"
-                        data-icon="home" data-iconpos="left">個案管理</a><a href="#" data-role="button" data-transition="slideup"
-                        data-icon="home" data-iconpos="left">健康評估表</a><a href="#about" data-role="button"
-                            data-transition="pop" data-icon="info" data-iconpos="left">關於我</a>
-
+            <a data-role="button" href="#Home" data-icon="check" data-iconpos="left">登入 </a>
             <a href="#" data-role="button" data-icon="delete" onclick="showConfirm();" data-iconpos="left">
                 離開</a>
-                </div>
-                    
         </div>
         <div data-role="footer" data-position="fixed">
             <h3>
                 國立台北護理健康大學 資訊管理系版權所有</h3>
         </div>
     </div>
-    <!--=========================================================個案查詢頁面-->
-    <div data-role="page" id="resualt" data-add-back-btn="true" data-back-btn-text="上一頁">
-        <div data-role="header">
-            <h2>
-                健康照護管理系統</h2>
+    <!--=========================================================首頁-->
+    <div data-role="page" id="Home">
+        <div data-role="header" style="height: 50px;">
+            <div>
+                <img src="images/Health.png" style="height: 30px; width: 25px; clear: left; margin-top: 10px;" /><b>&nbsp;
+                    <span class="style1">健康照護管理系統</span></b></div>
         </div>
         <div data-role="content">
-            <ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="搜尋個案">
-                <li data-role="list-divider">個案資料</li>
-                <li class="tap" id="test"><a href="#"></a></li>
-                <li><a href="#test1">張阿一</a></li>
-                <li><a href="#">張阿二</a></li>
-                <li><a href="#">張阿三</a></li>
-                <li><a href="#">張阿四</a></li>
-                <li><a href="#">吳蕙琪</a></li>
-                <li><a href="#">田羽琪</a></li>
-                <li><a href="#">石佳雯</a></li>
-            </ul>
-        </div>
-        <div data-role="footer" data-position="fixed">
-            <h2>
-                國立台北護理健康大學 資訊管理系版權所有</h2>
-        </div>
-    </div>
-    <!--=========================================================test-->
-        <div data-role="page" id="test1" data-add-back-btn="true" data-back-btn-text="上一頁">
-        <div data-role="header" style=" height: 50px;">
-       <div>
-        
-                <img src="images/Health.png" style="height: 30px; width: 25px; clear:left; margin-top:10px;" /><b>&nbsp; 
-                <span class="style1">健康照護管理系統</span></b></div>
-        </div>
-        <div data-role="content">
-       
-   
-        
-        <div>
-        <div class="ui-grid-a">
-            <div class="ui-block-a"><img src="images/nurse.png" style=" height:100px; width:60px;" /></div>
-            <div class="ui-block-b">
-                <div data-role="fieldcontain">
-                <label for="Mname"><b>個案：</b></label>
-                <label>李偉帆</label> 
+            <div>
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <img src="images/nurse.png" style="height: 100px; width: 60px;" /></div>
+                    <div class="ui-block-b">
+                        <div data-role="fieldcontain">
+                            <label for="Mname">
+                                <b>護理師：</b></label>
+                            <input type="text" id="Mname" name="Mname" />
+                        </div>
+                        <div data-role="fieldcontain">
+                            <label for="Mlocal">
+                                <b>所屬：</b></label>
+                            <input type="text" id="Mlocal" name="Mlocal" />
+                        </div>
+                    </div>
                 </div>
-                <div data-role="fieldcontain">
-                <label for="Mlocal"><b>身分證：</b></label>
-                <input type="text" id="Text2" name="Mlocal" /> 
-                </div>                           
+                <a href="#resualt" data-role="button" data-transition="slideup" data-icon="search"
+                    data-iconpos="left" data-prefetch>訪視紀錄</a><a href="#" data-role="button" data-transition="slideup"
+                        data-icon="plus" data-iconpos="left">新增紀錄</a> <a href="#" data-role="button" data-transition="slideup"
+                            data-icon="home" data-iconpos="left">個案管理</a><a href="#" data-role="button" data-transition="slideup"
+                                data-icon="home" data-iconpos="left">健康評估表</a><a href="#about" data-role="button"
+                                    data-transition="pop" data-icon="info" data-iconpos="left">關於我</a>
+                <a href="#" data-role="button" data-icon="delete" onclick="showConfirm();" data-iconpos="left">
+                    離開</a>
             </div>
-            </div>
-
-                    
         </div>
         <div data-role="footer" data-position="fixed">
             <h3>
@@ -260,7 +229,176 @@
                 <p>
                     國立台北護理健康大學</p>
                 <p>
-                    資訊管理系 李偉帆製作</p>
+                    資訊管理系 製作</p>
+            </div>
+        </div>
+    </div>
+    <!--=========================================================個案查詢頁面-->
+    <div data-role="page" id="resualt" data-add-back-btn="true" data-back-btn-text="上一頁">
+        <div data-role="header">
+            <h2>
+                健康照護管理系統</h2>
+        </div>
+        <div data-role="content">
+            <ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="搜尋個案">
+                <li data-role="list-divider">個案資料</li>
+                <li class="tap" id="test"><a href="#"></a></li>
+                <li><a href="#case1">張阿一</a></li>
+                <li><a href="#">張阿二</a></li>
+                <li><a href="#">張阿三</a></li>
+                <li><a href="#">張阿四</a></li>
+            </ul>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <h2>
+                國立台北護理健康大學 資訊管理系版權所有</h2>
+        </div>
+    </div>
+    <!--=========================================================個案基本資料-->
+    <div data-role="page" id="case1" data-add-back-btn="true" data-back-btn-text="上一頁">
+        <div data-role="header">
+            <h2>
+                健康照護管理系統</h2>
+        </div>
+        
+ <div data-role="content">
+        <div class="ui-grid-a">
+            <div class="ui-block-a">
+                <img src="images/old_man.png" alt="image" style="height: 100px; width: 60px;">
+            </div>
+            <div class="ui-block-b">
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup" data-mini="true">
+                        <label for="textinput5">
+                            <b>姓名：</b>
+                        </label>
+                        <label for="textinput5">
+                            <b>張阿一</b>
+                        </label>
+                        
+                    </fieldset>
+                </div>
+            </div>
+            <div class="ui-block-a">
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup" data-mini="true">
+                        <label for="textinput8">
+                            <b>性別：</b>
+                        </label>
+                                                <label for="textinput5">
+                            <b>男</b>
+                        </label>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="ui-block-b">
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup" data-mini="true">
+                        <label for="textinput7">
+                            <b>生日：</b>
+                        </label>
+                       <label for="textinput5">
+                            <b>1969/06/06</b>
+                        </label>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="ui-block-a">
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup" data-mini="true">
+                        <label for="textinput9">
+<b> 身分證：A123456789</b>                           
+                        </label>
+
+                    </fieldset>
+                </div>
+            </div>
+            <div class="ui-block-b">
+            </div>
+            <div class="ui-block-a">
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup" data-mini="true">
+                        <label for="textinput10">
+                           <b>緊急連絡人：</b> 
+                        </label><br />
+                          <label for="textinput5">
+                            <b>張阿三</b>
+                        </label>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="ui-block-b">
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup" data-mini="true">
+                        <label for="textinput11">
+                            <b>電話：</b>
+                        </label><br />
+                          <label for="textinput5">
+                            <b>0912345678</b>
+                        </label>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+        <a data-role="button" data-inline="true" href="#page1">
+            生理量測
+        </a>
+        <a data-role="button" data-inline="true" href="#Dis1">
+            疾病史
+        </a>
+    
+        </div>
+
+        <div data-role="footer" data-position="fixed">
+            <h3>
+                國立台北護理健康大學 資訊管理系版權所有</h3>
+        </div>
+    </div>
+  
+    <!--=========================================================個案疾病史-->
+    <div data-role="page" id="Dis1" data-add-back-btn="true" data-back-btn-text="上一頁">
+        <div data-role="header" style="height: 50px;">
+            <div>
+                <img src="images/Health.png" style="height: 30px; width: 25px; clear: left; margin-top: 10px;" /><b>&nbsp;
+                    <span class="style1">健康照護管理系統</span></b>
+            </div>
+        </div>
+        <div data-role="content">
+            <div data-role="collapsible-set" data-content-theme="c">
+                <div data-role="collapsible" data-collapsed="false">
+                    <h3>
+                        藥物過敏
+                    </h3>
+                </div>
+                <div data-role="collapsible" data-collapsed="false">
+                    <h3>
+                        食物過敏
+                    </h3>
+                </div>
+                <div data-role="collapsible" data-collapsed="false">
+                    <h3>
+                        輸血過敏
+                    </h3>
+                </div>
+                <div data-role="collapsible" data-collapsed="false">
+                    <h3>
+                        其他過敏
+                    </h3>
+                </div>
+                <div data-role="collapsible" data-collapsed="false">
+                    <h3>
+                        過去病史
+                    </h3>
+                </div>
+                <div data-role="collapsible" data-collapsed="false">
+                    <h3>
+                        手術史
+                    </h3>
+                </div>
+            </div>
+            <div data-role="footer" data-position="fixed">
+                <h3>
+                    國立台北護理健康大學 資訊管理系版權所有</h3>
             </div>
         </div>
     </div>
