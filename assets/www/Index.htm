@@ -9,6 +9,7 @@
     <script type="text/javascript" src="cordova-2.0.0.js"></script>
     <script type="text/javascript" src="jquery-1.6.4.min.js"></script>
     <script type="text/javascript" src="jquery.mobile.min.js"></script>
+
     <script type="text/javascript">
         if (typeof (JSON) == 'undefined') { //沒有 JSON 時才讓 browser 下載 json2.js
             $('head').append($("<script type='text/javascript' src='json2.js'>"));
@@ -240,14 +241,56 @@
                 健康照護管理系統</h2>
         </div>
         <div data-role="content">
-            <ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="搜尋個案">
-                <li data-role="list-divider">個案資料</li>
-                <li class="tap" id="test"><a href="#"></a></li>
-                <li><a href="#case1">張阿一</a></li>
-                <li><a href="#">張阿二</a></li>
-                <li><a href="#">張阿三</a></li>
-                <li><a href="#">張阿四</a></li>
-            </ul>
+
+
+
+
+<div data-role="fieldcontain">
+    <label for="name">搜尋個案:</label>
+    <input type="text" name="name" id="name" value="黃"  />
+    <input type="button" id="myButton" value="搜尋" onclick="josnload();" />
+</div>  
+
+
+ <ul data-role="listview" id ="contributionList" data-inset="true" data-filter="true">
+<li data-role="list-divider" >個案資料</li>
+
+
+   <script type="text/javascript">
+
+function josnload()
+{
+   // $('#contributionList').listview("clear");
+var keyword = document.getElementById("name").value;
+
+var data = jQuery.parseJSON(
+        jQuery.ajax({
+            url: "http://140.131.93.233/EHC_WCF/Service.svc/getCase/" + keyword, 
+            async: false,
+            dataType: 'json'
+        }).responseText
+    );
+
+  //data.getCaseResult;
+
+
+$.each(data.getCaseResult, function(index, value) { 
+  //alert(index + ': ' + value); 
+  var obj = value.Name;
+    //alert(String(obj));
+    
+    $('#contributionList').append('<li><a>' + String(obj) + '</a><a></a></li>').listview('refresh');
+    $("#contributionList").listview('refresh');  
+
+});
+
+};
+
+    </script>
+
+
+
+
         </div>
         <div data-role="footer" data-position="fixed">
             <h2>
